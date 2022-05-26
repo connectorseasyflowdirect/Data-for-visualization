@@ -7,12 +7,13 @@ var pkg = require(path.join(root, 'package.json'))
 
 program.version(pkg.version)
   .usage('<command> [options]')
-  .description('Run insights dekstop app, server or helper commands')
+  .description('Run insights server or helper commands')
 
 program
-  .command('desktop', 'run the desktop/electron app [default]', { isDefault: true })
-  .command('server', 'run as a server')
+  .command('init', 'init the .insights folder')
+  .command('start', 'start insights on port 8000')
   .command('createsecret', 'create a new authentication secret')
   .command('createsuperuser', 'create a new admin user')
+  .command('desktop', 'start desktop app (run `npm install -g insights-desktop` first)')
 
 program.parse(process.argv)

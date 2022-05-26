@@ -1,0 +1,28 @@
+.graph-and-controls {
+  .graph {
+    height: calc(100% - 20px);
+  }
+
+  .controls {
+    height: 20px;
+    background: #fff;
+
+    .left {
+      float: left;
+      margin-left: 10px;
+
+      > .ant-btn, > .ant-btn-group {
+        margin-right: 8px;
+      }
+    }
+
+    .right {
+      float: right;
+      margin-right: 10px;
+
+      > .ant-btn, > .ant-btn-group {
+        margin-left: 8px;
+      }
+    }
+  }
+}

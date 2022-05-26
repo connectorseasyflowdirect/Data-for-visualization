@@ -1,0 +1,36 @@
+{
+  "paginate": {
+    "default": 10,
+    "max": 50
+  },
+  "authentication": {
+    "entity": "user",
+    "service": "users",
+    "jwtOptions": {
+      "header": {
+        "typ": "access"
+      },
+      "audience": "https://yourdomain.com",
+      "issuer": "feathers",
+      "algorithm": "HS256",
+      "expiresIn": "1d"
+    },
+    "local": {
+      "usernameField": "email",
+      "passwordField": "password"
+    },
+    "oauth": {
+      "redirect": "http://localhost:3000/",
+      "google": {
+        "key": "552189764324-l79gr3769a2fgck31nfbfpm6fuijv1ng.apps.googleusercontent.com",
+        "secret": "LVhqLkZBkHFuSrdqdEwQ6oUm",
+        "scope": [
+          "openid",
+          "email"
+        ],
+        "nonce": true
+      }
+    }
+  },
+  "nedb": "./data"
+}

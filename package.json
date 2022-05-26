@@ -1,8 +1,12 @@
 {
   "name": "insights-build",
-  "description": "Desktop and Self-Hosted \"SQL-not-required\" data analytics and visualisation tool.",
-  "version": "0.0.23",
-  "homepage": "",
+  "private": true,
+  "workspaces": [
+    "packages/*"
+  ],
+  "description": "Self-Hosted \"SQL-not-required\" data analytics and visualisation tool.",
+  "version": "0.0.31",
+  "homepage": "https://github.com/mariusandra/insights",
   "main": "server",
   "license": "MIT",
   "keywords": [
@@ -20,35 +24,36 @@
     "lib": "server"
   },
   "engines": {
-    "node": ">= 7.6.0",
+    "node": ">= 8.0.0",
     "yarn": ">= 0.18.0"
   },
   "scripts": {
-    "test": "npm run eslint && npm run mocha",
-    "lint": "eslint packages --ignore-pattern=node_modules",
-    "lint:fix": "eslint packages --fix --ignore-pattern=node_modules",
-    "start": "NODE_ENV=development node --inspect packages/insights-server/app",
-    "build:core": "cd packages/insights-core && yarn run build",
-    "build": "echo 'Nothing to build in root repo'",
-    "analyze": "NODE_ENV=production ANALYZE_BUNDLE=true packages/insights-core/node_modules/.bin/webpack --config packages/insights-core/client/webpack.config.js",
-    "production": "NODE_ENV=production node packages/insights-server/app",
-    "mocha": "mocha test/ --recursive"
+    "desktop": "cd packages/insights-desktop && yarn run start",
+    "init": "rm -rf .insights && ./packages/insights/bin/insights-init --dev",
+    "init-no-login": "rm -rf .insights && ./packages/insights/bin/insights-init --dev --no-login",
+    "start": "concurrently --kill-others \"yarn run start-api\" \"yarn run start-web\" \"yarn run start-charts\"",
+    "start-api": "cd packages/insights-api && yarn start",
+    "start-charts": "cd packages/insights-charts && yarn start",
+    "start-web": "cd packages/insights-web && yarn start",
+    "build": "concurrently \"yarn run build-api\" \"yarn run build-web\" \"yarn run build-charts\"",
+    "build-api": "cd packages/insights-api && yarn run compile",
+    "build-charts": "cd packages/insights-charts && yarn run build",
+    "build-web": "cd packages/insights-web && yarn run build",
+    "createsuperuser": "cd packages/insights && ./bin/insights-createsuperuser"
   },
   "files": [
     "bin",
     "README.md"
   ],
   "dependencies": {
-    "insights": "file:./packages/insights",
-    "insights-core": "file:./packages/insights-core",
-    "insights-desktop": "file:./packages/insights-desktop",
-    "insights-server": "file:./packages/insights-server"
+    "insights-api": "*",
+    "insights-charts": "*",
+    "insights-web": "*"
   },
-  "peerDependencies": {
-    "webpack": "*"
-  },
+  "peerDependencies": {},
   "devDependencies": {
-    "oao": "^0.8.5",
-    "semver": "^5.3.0"
+    "concurrently": "^5.0.2",
+    "eslint-config-standard-react": "^9.2.0",
+    "semver": "^7.1.1"
   }
 }

@@ -1,0 +1,56 @@
+.insights-filter {
+  .filter-header {
+    line-height: 30px;
+    box-sizing: border-box;
+    vertical-align: middle;
+    display: flex;
+
+    .filter-preview {
+      vertical-align: middle;
+    }
+  }
+
+  .filter-placeholder {
+    color: #aaa;
+    .anticon {
+      color: #999;
+    }
+  }
+}
+
+.filter-preview-element {
+  vertical-align: middle;
+  background: #eee;
+  margin-right: 8px;
+  height: 23px;
+  line-height: 23px;
+  padding: 0 5px;
+  display: inline-block;
+  border: 1px solid #ddd;
+}
+
+.insights-filter-title {
+  min-width: 250px;
+  display: block;
+}
+
+.filter-popover-delete {
+  float: right;
+  line-height: 20px;
+  height: 20px;
+  margin-left: 12px;
+  padding: 0;
+}
+
+.filter-radio-popup {
+  display: block;
+  height: 30px;
+  line-height: 30px;
+}
+
+.filter-tag {
+  cursor: pointer;
+  &:hover {
+    box-shadow: 0 2px 2px rgba(0, 0, 0, 0.1);
+  }
+}

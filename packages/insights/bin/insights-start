@@ -1,0 +1,44 @@
+#!/usr/bin/env node
+const fs = require('fs')
+const path = require('path')
+const program = require('commander')
+const root = path.join(__dirname, '..')
+const pkg = require(path.join(root, 'package.json'))
+const findConfigFolder = require('../app/lib/find-config-folder')
+
+program.version(pkg.version)
+  .usage('<command> [options]')
+  .description('Start insights frontend and API server')
+  .option('-p, --port [number]', 'Run on specified port - defaults to 8000')
+  .option('-H, --host [host]', 'Host name or IP address to listen on - defaults to 127.0.0.1')
+  .option('--public-url [URL]', 'URL used in webapp - defaults to http://$HOST:$PORT')
+  .option('--static-root [path]', 'Folder for the insights web build - defaults to $NODE_MODULES/insights/web-build')
+  .option('--config [path]', 'Insights config folder - defaults to ".insights", searched from `pwd` all the way up to /')
+  .option('--data [path]', 'Path to the local NeDB database - defaults to $CONFIG/data')
+  .option('--secret [path]', 'Path to the authentication secret - defaults to $CONFIG/secret')
+
+
+program.parse(process.argv)
+
+const mapping = {
+  config: 'NODE_CONFIG_DIR',
+  data: 'INSIGHTS_DATA',
+  host: 'INSIGHTS_HOST',
+  port: 'INSIGHTS_PORT',
+  publicUrl: 'INSIGHTS_PUBLIC_URL',
+  staticRoot: 'INSIGHTS_STATIC_ROOT',
+  apiPath: 'INSIGHTS_API_PATH',
+  socketPath: 'INSIGHTS_SOCKET_PATH',
+}
+
+for (const [key, envKey] of Object.entries(mapping)) {
+  if (program[key]) {
+    process.env[envKey] = program[key]
+  }
+}
+
+process.env.NODE_ENV = 'production'
+
+const startInsights = require('../app/start')
+
+startInsights()

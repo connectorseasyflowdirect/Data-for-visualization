@@ -1,0 +1,123 @@
+.explorer-dashboard {
+  padding: 0 20px 10px 14px;
+
+  .ant-card {
+    .ant-card-head {
+      background: hsla(209, 36%, 48%, 1);
+      padding: 0 15px;
+      color: white;
+      border: none;
+      min-height: 40px;
+      .ant-card-head-title {
+        padding: 10px 0;
+        text-transform: uppercase;
+        color: hsla(197, 36%, 94%, 1);
+        font-weight: bold;
+        font-size: 14px;
+        .ant-select {
+          text-transform: initial;
+          font-weight: normal;
+          font-size: inherit;
+        }
+      }
+    }
+    .ant-card-body {
+      padding: 15px;
+    }
+  }
+
+  .ant-row {
+    margin-top: 20px;
+    margin-bottom: 20px;
+  }
+
+  .next-steps {
+    font-size: 16px;
+
+    .step-row {
+      line-height: 25px;
+      margin: 10px 0px;
+
+      .anticon {
+        color: hsla(209, 61%, 37%, 1);
+        transform: scale(0.833);
+        margin-right: 10px;
+        float: left;
+        padding-top: 4px;
+      }
+      .info {
+        display: block;
+        margin-left: 28px;
+      }
+    }
+  }
+
+  img {
+    max-width: 100%;
+    margin: 14px 10px 40px 0;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.2);
+    vertical-align: top;
+  }
+
+  .dashboard-summary-row {
+    //background: hsla(209, 53%, 31%, 1);
+    border-radius: 2px;
+    .ant-row {
+      padding: 0;
+      margin: 20px 0 10px 0;
+    }
+    .ant-col {
+      padding: 0 0;
+    }
+
+    &.compact {
+      .ant-row {
+        margin: 16px 0 0 0;
+        padding: 0;
+      }
+      .ant-col {
+        padding: 0;
+      }
+      .dashboard-statistic {
+        .statistic-title {
+          display: none;
+        }
+        .statistic-value,
+        .statistic-value > .ant-btn {
+          font-size: 16px;
+        }
+      }
+    }
+
+    .dashboard-statistic {
+      &.no-value {
+        .statistic-value, .statistic-value button {
+          color: hsla(209, 37%, 72%, 1);
+        }
+        .anticon {
+          color: hsla(209, 37%, 72%, 1);
+        }
+      }
+      .statistic-title {
+        color: white;
+        text-transform: uppercase;
+        font-weight: bold;
+        font-size: 12px;
+        color: hsla(197, 37%, 68%, 1);
+        letter-spacing: 0.4px;
+
+      }
+      .statistic-value,
+      .statistic-value > .ant-btn {
+        color: white;
+        font-size: 22px;
+        display: block;
+        word-break: break-word;
+        padding-left: 0;
+      }
+      .anticon {
+        color: white;
+      }
+    }
+  }
+}

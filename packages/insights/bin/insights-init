@@ -1,0 +1,20 @@
+#!/usr/bin/env node
+
+const fs = require('fs')
+const path = require('path')
+const program = require('commander')
+const root = path.join(__dirname, '..')
+const pkg = require(path.join(root, 'package.json'))
+
+const initInsights = require('../app/init')
+
+program.version(pkg.version)
+  .usage('<command> [options]')
+  .description('Initialize config to start insights by answering a few questions')
+  .option('--dev', 'Include development.json in ".insights"')
+  .option('--login', 'Init insights with support for user accounts')
+  .option('--no-login', 'Init insights without requiring a user to login with')
+
+program.parse(process.argv)
+
+initInsights({ dev: program.dev, login: program.login })

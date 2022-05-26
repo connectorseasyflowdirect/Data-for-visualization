@@ -1,0 +1,66 @@
+.models-select-tree {
+  li .ant-tree-node-content-wrapper {
+    height: auto;
+    cursor: initial;
+  }
+  li .ant-tree-node-content-wrapper:hover {
+    background: hsl(210, 40%, 96%);
+  }
+  .ant-tree-checkbox-inner {
+    transition-duration: 0.1s;
+  }
+  .ant-tree-checkbox-checked::after {
+    transition-duration: 0.1s;
+  }
+
+  .ignore-tag {
+    margin-left: 5px;
+  }
+  .new-tag {
+    margin-left: 5px;
+  }
+
+  .tree-column-row {
+    display: flex;
+
+    .column-key {
+      width: 200px;
+      min-width: 25%;
+      white-space: initial;
+      .anticon {
+        margin-left: 5px;
+        color: hsl(210, 21%, 48%);
+        &:hover {
+          color: hsl(210, 21%, 39%);
+        }
+      }
+      &.new-column,
+      &.edited-column {
+        font-weight: bold;
+      }
+    }
+
+    .column-meta {
+      max-width: calc(75% - 80px);
+      .ant-tag {
+        display: inline-flex;
+        white-space: normal;
+        > i.anticon {
+          margin: 4px 4px 4px 0px;
+        }
+        > code {
+          white-space: pre-wrap;
+        }
+      }
+      .anticon-edit {
+        color: hsl(210, 10%, 80%);
+        &:hover {
+          color: hsl(210, 21%, 39%);
+        }
+        cursor: pointer;
+        vertical-align: top;
+        margin-top: 6px;
+      }
+    }
+  }
+}

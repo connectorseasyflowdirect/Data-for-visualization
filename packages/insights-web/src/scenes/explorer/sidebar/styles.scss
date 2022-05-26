@@ -1,0 +1,203 @@
+.sidebar-with-search {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  .explorer-search {
+    height: 52px;
+    padding: 10px 6px 10px 10px;
+  }
+  .explorer-tree {
+    overflow: scroll;
+  }
+}
+.explorer-search {
+  h2.no-connection {
+    margin: 10px 0 0 16px;
+  }
+}
+.explorer-tree {
+  &.no-connection {
+    margin-top: 10px;
+    .ant-menu {
+      margin: 0 10px 10px 10px;
+      background: none;
+      li:hover {
+        background: hsla(209, 34%, 85%, 1);
+      }
+      > .ant-menu-item-divider {
+        background: none;
+      }
+    }
+  }
+}
+.explorer-tree {
+  &.selected-model {
+    padding: 10px 6px 10px 10px;
+  }
+
+  .ant-tree {
+    color: #333;
+  }
+  .ant-tree.ant-tree-show-line li span.ant-tree-switcher {
+    background: none;
+  }
+  .ant-tree li {
+    padding-top: 1px;
+    padding-bottom: 1px;
+  }
+  .ant-tree-child-tree > li:first-child {
+    padding-top: 2px;
+  }
+  .ant-tree > .ant-tree-treenode-switcher-open {
+    padding-bottom: 20px;
+  }
+
+  .ant-tree > .ant-tree-treenode-switcher-close {
+    padding-bottom: 20px;
+  }
+  .ant-tree li .ant-tree-node-content-wrapper {
+    color: #333;
+    min-width: calc(100% - 24px);
+    .sidebar-field-title {
+      display: flex;
+      width: 100%;
+      .field-title {
+        flex: 1;
+        strong {
+          text-decoration: underline;
+          color: hsla(210, 100%, 45%, 1);
+          font-weight: bold;
+        }
+
+        &.id-count-field {
+          font-style: italic;
+          color: hsl(209, 45%, 52%);
+        }
+      }
+      &.sidebar-field-type-link {
+        width: auto;
+        .field-title {
+          flex: 0;
+        }
+      }
+    }
+    .model-field-controls {
+      float: right;
+
+      .favourite-star {
+        margin-left: 5px;
+
+        &.not-in-favourites i {
+          color: hsla(3, 72%, 83%, 1);
+
+          &:hover {
+            color: hsla(3, 77%, 42%, 1);
+          }
+        }
+
+        &.in-favourites i {
+          color: hsla(3, 77%, 42%, 1);
+        }
+      }
+
+      .filter-button {
+        margin-left: 5px;
+
+        i {
+          color: hsla(209, 39%, 65%, 1);
+        }
+
+        &:hover i, &.filter-filled i {
+          color: hsla(209, 32%, 40%, 1)
+        }
+      }
+    }
+  }
+  .ant-tree li .ant-tree-node-content-wrapper:hover {
+    background: hsla(209, 34%, 85%, 1);
+  }
+  .ant-tree li .ant-tree-node-content-wrapper.ant-tree-node-selected {
+    background: hsla(210, 67%, 83%, 1);
+  }
+  .ant-tree li .ant-tree-node-content-wrapper.ant-tree-node-selected:hover {
+    background: hsla(210, 67%, 83%, 1);
+  }
+
+  .ant-tree-switcher {
+    i.anticon {
+      color: hsla(209, 36%, 84%, 1);
+      &.ant-tree-switcher-icon {
+        color: #333;
+      }
+    }
+  }
+
+  .saved-views > .ant-tree-switcher i.anticon {
+    color: hsla(42, 98%, 45%, 1);
+  }
+  .pinned-keys > .ant-tree-switcher i.anticon {
+    color: hsla(3, 77%, 42%, 1);
+  }
+  .tree-node-selected > .ant-tree-switcher i.anticon {
+    color: hsla(209, 66%, 39%, 1);
+  }
+
+  .model-link-tag {
+    margin-left: 5px;
+    color: hsla(209, 45%, 52%, 1);
+  }
+
+  .field-title.field-selected {
+    font-weight: bold;
+  }
+
+  .save-new-view {
+    color: hsl(209, 45%, 52%);
+  }
+
+  .boolean {
+    background: #aaa;
+    color: #fff;
+    font-size: 12px;
+    line-height: 18px;
+    display: inline-block;
+    padding: 0 3px;
+    &.true {
+      background: #8eca10;
+    }
+  }
+
+  .count-tag {
+    color: #888;
+  }
+
+  .model-list {
+    padding: 0 6px 10px 10px;
+    .ant-tree > .ant-tree-treenode-switcher-close {
+      padding: 1px 0;
+    }
+    .ant-tree-title strong {
+      text-decoration: underline;
+      color: hsla(210, 100%, 45%, 1);
+      font-weight: bold;
+    }
+
+    .icons-sidebar-part {
+      margin-left: 5px;
+      .anticon {
+        margin-left: 5px;
+        opacity: 0.5;
+        &:hover {
+          opacity: 0.8;
+        }
+      }
+    }
+    .ant-tree-node-content-wrapper:hover .icons-sidebar-part .anticon {
+      opacity: 0.8;
+    }
+    .ant-tree-node-selected .icons-sidebar-part .anticon {
+      opacity: 0.8;
+    }
+  }
+}
+

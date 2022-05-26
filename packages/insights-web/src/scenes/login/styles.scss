@@ -1,0 +1,36 @@
+.login-scene {
+  padding-top: calc(46vh - 140px);
+  height: 100%;
+  background: url('https://images.unsplash.com/photo-1579961611811-54b643ddbd91?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=3450&q=80') #162c41 center center;
+  background-size: cover;
+
+  .ant-card {
+    margin: 0 auto;
+    .has-error {
+      .ant-form-extra {
+        color: #f5222d;
+      }
+    }
+  }
+
+  .logo {
+    font-size: 32px;
+    font-family: serif;
+    margin-bottom: 20px;
+    text-transform: uppercase;
+    text-align: center;
+
+    img {
+      width: 32px;
+      height: 32px;
+      vertical-align: text-top;
+      margin-right: 6px
+    }
+  }
+
+  .login-box {
+    .login-form-button {
+      width: 100%;
+    }
+  }
+}

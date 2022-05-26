@@ -1,7 +1,7 @@
 {
   "name": "insights",
   "description": "Desktop and Self-Hosted \"SQL-not-required\" data analytics and visualisation tool.",
-  "version": "0.0.23",
+  "version": "0.0.72",
   "homepage": "",
   "main": "app",
   "license": "MIT",
@@ -16,6 +16,13 @@
   "contributors": [],
   "repository": "mariusandra/insights",
   "bugs": {},
+  "bin": {
+    "insights": "./bin/insights",
+    "insights-init": "./bin/insights-init",
+    "insights-start": "./bin/insights-start",
+    "insights-createsecret": "./bin/insights-createsecret",
+    "insights-createsuperuser": "./bin/insights-createsuperuser"
+  },
   "directories": {
     "lib": "app"
   },
@@ -23,15 +30,22 @@
     "node": ">= 7.6.0",
     "yarn": ">= 0.18.0"
   },
-  "scripts": {},
-  "bin": {
-    "insights": "./bin/insights"
+  "scripts": {
+    "start": "./bin/insights-start",
+    "build": "npm run build-web && npm run copy-web",
+    "build-web": "cd ../insights-web && npm run build",
+    "copy-web": "rm -rf web-build/ && cp -a ../insights-web/build ./web-build",
+    "prepublish": "npm run build"
   },
   "files": [
-    "bin"
+    "bin",
+    "app",
+    "web-build"
   ],
   "peerDependencies": {},
   "dependencies": {
-    "commander": "^2.10.0"
+    "commander": "^4.1.0",
+    "insights-api": "0.0.19",
+    "prompt-promise": "^1.0.3"
   }
 }
